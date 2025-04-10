@@ -29,10 +29,9 @@ type IssueResponse struct {
 
 func main() {
 	apiKey := "plane_api_75401edcd20343fdb616563659adcea8"
-    workspaceSlug := "ikhsan-workspace"
     assigneeID := "424cada8-95ca-4710-8c93-66ce6e71c7b0"
 
-    projectURL := fmt.Sprintf("https://api.plane.so/api/v1/workspaces/%s/projects", workspaceSlug)
+    projectURL := "https://api.plane.so/api/v1/workspaces/ikhsan-workspace/projects"
     req, _ := http.NewRequest("GET", projectURL, nil)
     req.Header.Add("x-api-key", apiKey)
 
@@ -51,7 +50,7 @@ func main() {
     }
 
     for _, project := range projectResp.Results {
-        issueURL := fmt.Sprintf("https://api.plane.so/api/v1/workspaces/%s/projects/%s/issues", workspaceSlug, project.ID)
+        issueURL := fmt.Sprintf("https://api.plane.so/api/v1/workspaces/ikhsan-workspace/projects/%s/issues", project.ID)
         reqIssue, _ := http.NewRequest("GET", issueURL, nil)
         reqIssue.Header.Add("x-api-key", apiKey)
 
