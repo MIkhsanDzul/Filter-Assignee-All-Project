@@ -70,8 +70,6 @@ func main() {
             continue
         }
 
-
-        // Step 3: Filter by assignee
         for _, issue := range issueResp.Results {
             for _, assignee := range issue.Assignees {
                 if assignee == assigneeID {
